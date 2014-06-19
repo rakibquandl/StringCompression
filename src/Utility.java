@@ -35,13 +35,13 @@ public class Utility {
 	}
 	
 	public static String decompressString (byte[] output, int compressedDataLength) throws UnsupportedEncodingException, DataFormatException {
-      Inflater decompresser = new Inflater();
-      decompresser.setInput(output, 0, compressedDataLength);
-      byte[] result = new byte[100];
-      int resultLength = decompresser.inflate(result);
-      decompresser.end();
-      String outputString = new String(result, 0, resultLength, "UTF-8");
-      return outputString;
+       Inflater decompresser = new Inflater();
+       decompresser.setInput(output, 0, compressedDataLength);
+       byte[] result = new byte[100];
+       int resultLength = decompresser.inflate(result);
+       decompresser.end();
+       String outputString = new String(result, 0, resultLength, "UTF-8");
+       return outputString;
 	}
 	
 }

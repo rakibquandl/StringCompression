@@ -6,7 +6,7 @@ import java.util.zip.Inflater;
 public class Compression {
     public static void main(String[] args) throws Exception {
     	
-	    	for (int i = 1; i <= 100; i++) {
+	    	for (int i = 1; i <= 1; i++) {
 	    		System.out.println ("Iteration: "+ i+ "\n");
 	    		Utility object = new Utility();
 	    		Random rng = new Random();
@@ -18,11 +18,14 @@ public class Compression {
 	    			System.out.println ("Compression Type: "+ options[j]);
 	    			System.out.println ("Generated Random String: "+inputString);
 	        		String compressionOption = options[j];
+	        		final long startTime = System.currentTimeMillis();
 	        		CompressedData compressedOutput = object.compressString (inputString, compressionOption);
-	            System.out.println ("Compressed Data (bytes): "+compressedOutput.getCompressedData());
-	            String decompressedString = object.decompressString(compressedOutput.getCompressedData(), compressedOutput.getCompressedDataLength());
-	            System.out.println ("Decompressed (Normal) String Again: " + decompressedString);
-	            System.out.println ("------------------------------------------------------------");
+	        		final long endTime = System.currentTimeMillis();
+		            System.out.println ("Compressed Data (bytes): "+compressedOutput.getCompressedData());
+		            System.out.println ("Compression Time: "+(endTime - startTime));
+		            String decompressedString = object.decompressString(compressedOutput.getCompressedData(), compressedOutput.getCompressedDataLength());
+		            System.out.println ("Decompressed (Normal) String Again: " + decompressedString);
+		            System.out.println ("------------------------------------------------------------");
 	    		}
 	    		
 	    	  System.out.println ("************************************************************************");	
